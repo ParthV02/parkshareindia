@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookingsRouteImport } from './routes/bookings'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as SigninRouteImport } from './routes/signin'
+import { Route as BookIdRouteImport } from './routes/book.$id'
+import { Route as InfoPageRouteImport } from './routes/info.$page'
+import { Route as OwnerIndexRouteImport } from './routes/owner.index'
+import { Route as OwnerNewRouteImport } from './routes/owner.new'
+import { Route as ParkingIdRouteImport } from './routes/parking.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookingsRoute = BookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SigninRoute = SigninRouteImport.update({
+  id: '/signin',
+  path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookIdRoute = BookIdRouteImport.update({
+  id: '/book/$id',
+  path: '/book/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfoPageRoute = InfoPageRouteImport.update({
+  id: '/info/$page',
+  path: '/info/$page',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnerIndexRoute = OwnerIndexRouteImport.update({
+  id: '/owner/',
+  path: '/owner/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OwnerNewRoute = OwnerNewRouteImport.update({
+  id: '/owner/new',
+  path: '/owner/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParkingIdRoute = ParkingIdRouteImport.update({
+  id: '/parking/$id',
+  path: '/parking/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookings': typeof BookingsRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/search': typeof SearchRoute
+  '/signin': typeof SigninRoute
+  '/book/$id': typeof BookIdRoute
+  '/info/$page': typeof InfoPageRoute
+  '/owner/new': typeof OwnerNewRoute
+  '/parking/$id': typeof ParkingIdRoute
+  '/owner/': typeof OwnerIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookings': typeof BookingsRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/search': typeof SearchRoute
+  '/signin': typeof SigninRoute
+  '/book/$id': typeof BookIdRoute
+  '/info/$page': typeof InfoPageRoute
+  '/owner/new': typeof OwnerNewRoute
+  '/parking/$id': typeof ParkingIdRoute
+  '/owner': typeof OwnerIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookings': typeof BookingsRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/search': typeof SearchRoute
+  '/signin': typeof SigninRoute
+  '/book/$id': typeof BookIdRoute
+  '/info/$page': typeof InfoPageRoute
+  '/owner/new': typeof OwnerNewRoute
+  '/parking/$id': typeof ParkingIdRoute
+  '/owner/': typeof OwnerIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bookings'
+    | '/how-it-works'
+    | '/search'
+    | '/signin'
+    | '/book/$id'
+    | '/info/$page'
+    | '/owner/new'
+    | '/parking/$id'
+    | '/owner/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bookings'
+    | '/how-it-works'
+    | '/search'
+    | '/signin'
+    | '/book/$id'
+    | '/info/$page'
+    | '/owner/new'
+    | '/parking/$id'
+    | '/owner'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookings'
+    | '/how-it-works'
+    | '/search'
+    | '/signin'
+    | '/book/$id'
+    | '/info/$page'
+    | '/owner/new'
+    | '/parking/$id'
+    | '/owner/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookingsRoute: typeof BookingsRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  SearchRoute: typeof SearchRoute
+  SigninRoute: typeof SigninRoute
+  BookIdRoute: typeof BookIdRoute
+  InfoPageRoute: typeof InfoPageRoute
+  OwnerNewRoute: typeof OwnerNewRoute
+  ParkingIdRoute: typeof ParkingIdRoute
+  OwnerIndexRoute: typeof OwnerIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bookings': {
+      id: '/bookings'
+      path: '/bookings'
+      fullPath: '/bookings'
+      preLoaderRoute: typeof BookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signin': {
+      id: '/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book/$id': {
+      id: '/book/$id'
+      path: '/book/$id'
+      fullPath: '/book/$id'
+      preLoaderRoute: typeof BookIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/info/$page': {
+      id: '/info/$page'
+      path: '/info/$page'
+      fullPath: '/info/$page'
+      preLoaderRoute: typeof InfoPageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner/': {
+      id: '/owner/'
+      path: '/owner'
+      fullPath: '/owner/'
+      preLoaderRoute: typeof OwnerIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/owner/new': {
+      id: '/owner/new'
+      path: '/owner/new'
+      fullPath: '/owner/new'
+      preLoaderRoute: typeof OwnerNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parking/$id': {
+      id: '/parking/$id'
+      path: '/parking/$id'
+      fullPath: '/parking/$id'
+      preLoaderRoute: typeof ParkingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookingsRoute: BookingsRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  SearchRoute: SearchRoute,
+  SigninRoute: SigninRoute,
+  BookIdRoute: BookIdRoute,
+  InfoPageRoute: InfoPageRoute,
+  OwnerNewRoute: OwnerNewRoute,
+  ParkingIdRoute: ParkingIdRoute,
+  OwnerIndexRoute: OwnerIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
